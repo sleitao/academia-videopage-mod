@@ -1,0 +1,13 @@
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.style1_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.list_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.links_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_image_button,
+#page-mod-videopage-mod #fitem_id_videopage .atto_managefiles_button,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.style2_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.align_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.indent_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.insert_group,
+#page-mod-videopage-mod #fitem_id_videopage .atto_group.undo_group {
+  display: none;
+}
+
