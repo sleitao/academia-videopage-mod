@@ -60,3 +60,4 @@ $string['printheading'] = 'Display videopage name';
 $string['printheadingexplain'] = 'Display videopage name above content?';
 $string['printintro'] = 'Display videopage description';
 $string['printintroexplain'] = 'Display videopage description above content?';
+$string['configrequiremodintro'] = 'Disable this option if you do not want to force users to enter description of each activity.';

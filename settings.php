@@ -33,7 +33,7 @@ if ($ADMIN->fulltree) {
 
     //--- general settings -----------------------------------------------------------------------------------
     $settings->add(new admin_setting_configcheckbox('videopage/requiremodintro',
-        get_string('requiremodintro', 'admin'), get_string('configrequiremodintro', 'admin'), 1));
+        get_string('requiremodintro', 'admin'), get_string('configrequiremodintro', 'videopage'), 1));
     $settings->add(new admin_setting_configmultiselect('videopage/displayoptions',
         get_string('displayoptions', 'videopage'), get_string('configdisplayoptions', 'videopage'),
         $defaultdisplayoptions, $displayoptions));
