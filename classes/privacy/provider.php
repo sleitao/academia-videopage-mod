@@ -15,16 +15,30 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Videopage module version information
+ * Privacy Subsystem implementation for mod_videopage.
  *
- * @package mod_videopage
- * @copyright  2009 Petr Skoda (http://skodak.org)
+ * @package    mod_videopage
+ * @copyright  2018 Zig Tan <zig@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace mod_videopage\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018051400;       // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2018050800;    // Requires this Moodle version
-$plugin->component = 'mod_videopage';       // Full name of the plugin (used for diagnostics)
-$plugin->cron      = 0;
+/**
+ * The mod_videopage module does not store any data.
+ *
+ * @copyright  2018 Zig Tan <zig@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

@@ -47,6 +47,9 @@ class restore_videopage_activity_structure_step extends restore_activity_structu
         $oldid = $data->id;
         $data->course = $this->get_courseid();
 
+        // Any changes to the list of dates that needs to be rolled should be same during course restore and course reset.
+        // See MDL-9367.
+
         // insert the videopage record
         $newitemid = $DB->insert_record('videopage', $data);
         // immediately after inserting "activity" record, call this

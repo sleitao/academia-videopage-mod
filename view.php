@@ -24,6 +24,7 @@
  */
 
 require('../../config.php');
+require_once($CFG->dirroot.'/mod/videopage/lib.php');
 require_once($CFG->dirroot.'/mod/videopage/locallib.php');
 require_once($CFG->libdir.'/completionlib.php');
 
@@ -50,20 +51,8 @@ require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/videopage:view', $context);
 
-// Trigger module viewed event.
-$event = \mod_videopage\event\course_module_viewed::create(array(
-   'objectid' => $videopage->id,
-   'context' => $context
-));
-$event->add_record_snapshot('course_modules', $cm);
-$event->add_record_snapshot('course', $course);
-$event->add_record_snapshot('videopage', $videopage);
-$event->trigger();
-
-// Update 'viewed' state if required by completion system
-require_once($CFG->libdir . '/completionlib.php');
-$completion = new completion_info($course);
-$completion->set_module_viewed($cm);
+// Completion and trigger events.
+page_view($videopage, $course, $cm, $context);
 
 $PAGE->set_url('/mod/videopage/view.php', array('id' => $cm->id));
 
@@ -79,7 +68,9 @@ if ($inpopup and $videopage->display == RESOURCELIB_DISPLAY_POPUP) {
     $PAGE->set_activity_record($videopage);
 }
 echo $OUTPUT->header();
-echo $OUTPUT->heading(format_string($videopage->name), 2);
+if (!isset($options['printheading']) || !empty($options['printheading'])) {
+    echo $OUTPUT->heading(format_string($videopage->name), 2);
+}
 
 if (!empty($options['printintro'])) {
     if (trim(strip_tags($videopage->intro))) {
