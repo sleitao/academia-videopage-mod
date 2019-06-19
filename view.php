@@ -52,7 +52,7 @@ $context = context_module::instance($cm->id);
 require_capability('mod/videopage:view', $context);
 
 // Completion and trigger events.
-page_view($videopage, $course, $cm, $context);
+videopage_view($videopage, $course, $cm, $context);
 
 $PAGE->set_url('/mod/videopage/view.php', array('id' => $cm->id));
 
