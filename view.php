@@ -88,7 +88,4 @@ $formatoptions->context = $context;
 $content = format_text($content, $videopage->contentformat, $formatoptions);
 echo $OUTPUT->box($content, "generalbox center clearfix");
 
-$strlastmodified = get_string("lastmodified");
-echo "<div class=\"modified\">$strlastmodified: ".userdate($videopage->timemodified)."</div>";
-
 echo $OUTPUT->footer();
